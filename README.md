@@ -17,7 +17,7 @@ A Python bot to track Irish visa application status and send notifications via P
    ```bash
    uv venv
    source .venv/bin/activate
-   uv pip install .
+   uv pip install -r requirements.txt
    ```
 
 4. Create a `.env` file with your Pushbullet access token:
