@@ -45,6 +45,43 @@ The bot will:
 3. Search for your application numbers
 4. Send a Pushbullet notification if your application is found
 
+## Setup Cron Job
+
+To automatically run the visa checking script periodically:
+
+1. Open your crontab configuration:
+```bash
+crontab -e
+```
+
+2. Add one of these example schedules:
+
+```bash
+# Run every hour
+0 * * * * cd /path/to/ie_via && python3 main.py
+
+# Run every 30 minutes
+*/30 * * * * cd /path/to/ie_via && python3 main.py
+
+# Run every 15 minutes between 9 AM and 6 PM
+*/15 9-18 * * * cd /path/to/ie_via && python3 main.py
+```
+
+3. Save and exit the editor. The cron service will automatically load your new schedule.
+
+Note: Make sure to replace `/path/to/ie_via` with the actual path to your project directory.
+
+Basic crontab format:
+```
+* * * * * command
+│ │ │ │ │
+│ │ │ │ └─ day of week (0-7, 0 and 7 are Sunday)
+│ │ │ └─── month (1-12)
+│ │ └───── day of month (1-31)
+│ └─────── hour (0-23)
+└───────── minute (0-59)
+```
+
 ## Dependencies
 
 - requests
